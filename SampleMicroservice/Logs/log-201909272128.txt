@@ -1,0 +1,8 @@
+2019-09-27T21:28:19.5146330-04:00 [INF] (SampleMicroservice//) User profile is available. Using '"C:\Users\adewa\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-27T21:28:22.1708611-04:00 [INF] (SampleMicroservice//) Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-09-27T21:28:22.8498578-04:00 [INF] (SampleMicroservice//) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get()" on controller "SampleMicroservice.Controllers.ValuesController" ("SampleMicroservice").
+2019-09-27T21:28:22.8650995-04:00 [INF] (SampleMicroservice//) Executing action method "SampleMicroservice.Controllers.ValuesController.Get (SampleMicroservice)" - Validation state: Valid
+2019-09-27T21:28:22.8741780-04:00 [INF] (SampleMicroservice//) Executed action method "SampleMicroservice.Controllers.ValuesController.Get (SampleMicroservice)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.4617ms.
+2019-09-27T21:28:22.8878619-04:00 [INF] (SampleMicroservice//) Executing ObjectResult, writing value of type '"System.String[]"'.
+2019-09-27T21:28:23.1699208-04:00 [INF] (SampleMicroservice//) Executed action "SampleMicroservice.Controllers.ValuesController.Get (SampleMicroservice)" in 310.5126ms
+2019-09-27T21:28:23.2023941-04:00 [INF] (SampleMicroservice//) Request finished in 1036.8764ms 200 application/json; charset=utf-8
