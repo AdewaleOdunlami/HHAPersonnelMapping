@@ -17,19 +17,19 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SampleMicroservice": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:5000"
-    },
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values"
+    },
+    "SampleMicroservice": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/address",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
     }
   }
 }
