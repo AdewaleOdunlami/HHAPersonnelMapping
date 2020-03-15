@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SampleMicroservice.Models
 {
@@ -8,9 +7,9 @@ namespace SampleMicroservice.Models
         public Address()
         {
             Country = "US";
-            HouseNumber = 1;
-            Street = "Unknown Street";
-            City = "Bubbling";
+            HouseNumber = 4;
+            Street = "Lusterleaf Court";
+            City = "Stafford";
             State = "VA";
             Zip = "22554";
         }
@@ -32,7 +31,7 @@ namespace SampleMicroservice.Models
         {
             get
             {
-                return $"{HouseNumber} {Street}";
+                return $"{HouseNumber} {Street} {City} {State}";
             }
         }
         public Coordinates Coordinates { get; set; }

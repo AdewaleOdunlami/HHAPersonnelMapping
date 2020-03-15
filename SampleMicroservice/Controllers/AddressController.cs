@@ -11,14 +11,14 @@ namespace SampleMicroservice.Controllers
     [ApiController]
     public class AddressController : ControllerBase
     {
-        private readonly string _bingMapsApiKey;
+        private readonly string _mapsApiKey;
         private readonly IConfiguration _configuration;
         private HttpClient _client = new HttpClient() { BaseAddress = new Uri("http://localhost:5000") };
 
         public AddressController(IConfiguration configuration)
         {
             this._configuration = configuration;
-            _bingMapsApiKey = _configuration.GetSection("BingMapsAPIKey").GetSection("Key").Value;
+            _mapsApiKey = _configuration.GetSection("MapBoxAPIKey").GetSection("Key").Value;
         }
 
         public async void ProcessAddress()
@@ -36,26 +36,13 @@ namespace SampleMicroservice.Controllers
 
         private async Task<GeoCodePoints> GetGeoCodePoints(Address address)
         {
-            //with zip
-            if (!string.IsNullOrEmpty(address.Zip.Trim()))
-            {
-                var url = $"http://dev.virtualearth.net/REST/v1/Locations/{address.Country}/{address.State}/{address.Zip}/{address.FullAddress}?key={_bingMapsApiKey}";
-                var response = (await _client.GetAsync(url)).Content.ReadAsStringAsync().Result;
-            }
+            var url = $"https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+                $"{address.FullAddress}.json?access_token={_mapsApiKey}";
+
+            var response = (await _client.GetAsync(url)).Content.ReadAsStringAsync().Result;
 
             return new GeoCodePoints();
 
-            //without zip
-            //if (!string.IsNullOrEmpty(address.Zip.Trim()))
-            //{
-            //    var url = $"http://dev.virtualearth.net/REST/v1/Locations/{address.Country}/{address.FullAddress}?key={_bingMapsApiKey}";
-            //    var response = (await _client.GetAsync(url)).Content.ReadAsAsync<GeoCodePoints>().Result;
-            //    return response;
-            //}
-
-            //bulk search
-
-            //http://dev.virtualearth.net/REST/v1/Locations?locality=Greenville&maxResults=10&key={BingMapsAPIKey}
         }
     }
 }
